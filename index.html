@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEON FORGE — Engineer Your Identity</title>
+  <meta name="description" content="NEON FORGE — Ropa tecnica luminosa. Disena, personaliza y forja tu identidad con la coleccion limitada 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SPRITE SVG: sudadera reutilizable en toda la pagina
+       ============================================================ -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#123236"/>
+        <stop offset="45%" stop-color="#0a1e22"/>
+        <stop offset="100%" stop-color="#03090b"/>
+      </linearGradient>
+      <filter id="neonBlur" x="-40%" y="-40%" width="180%" height="180%">
+        <feGaussianBlur stdDeviation="6" result="b"/>
+        <feMerge>
+          <feMergeNode in="b"/>
+          <feMergeNode in="b"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <symbol id="hoodie" viewBox="0 0 400 620">
+      <!-- silueta -->
+      <path d="M200 28 C138 28 100 78 97 146 C95 176 101 197 106 210
+               C82 220 60 248 52 300 L36 552 C34 564 40 572 52 574
+               L348 574 C360 572 366 564 364 552 L348 300
+               C340 248 318 220 294 210 C299 197 305 176 303 146
+               C300 78 262 28 200 28 Z"
+            fill="url(#bodyGrad)"/>
+      <!-- hombros -->
+      <path d="M106 210 C150 236 250 236 294 210" fill="none"
+            stroke="rgba(120,200,210,.28)" stroke-width="3"/>
+      <!-- capucha + hueco de la cara -->
+      <path d="M200 62 C160 62 136 96 137 136 C138 176 165 200 200 200
+               C235 200 262 176 263 136 C264 96 240 62 200 62 Z"
+            fill="#02090a"/>
+      <g filter="url(#neonBlur)">
+        <path d="M200 62 C160 62 136 96 137 136 C138 176 165 200 200 200
+                 C235 200 262 176 263 136 C264 96 240 62 200 62 Z"
+              fill="none" stroke="var(--neon, #4dd8e8)" stroke-width="5" stroke-linecap="round"/>
+        <!-- cremallera -->
+        <path d="M200 214 L200 562" fill="none" stroke="var(--neon, #4dd8e8)"
+              stroke-width="3.5" stroke-linecap="round"/>
+        <!-- costura brazo izquierdo -->
+        <path d="M112 226 C99 300 94 430 99 560" fill="none"
+              stroke="var(--neon, #4dd8e8)" stroke-width="3" stroke-linecap="round"/>
+        <!-- curva de pecho -->
+        <path d="M122 396 C170 424 230 424 278 396" fill="none"
+              stroke="var(--neon, #4dd8e8)" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
+      </g>
+      <g filter="url(#neonBlur)">
+        <!-- costura brazo derecho (acento calido) -->
+        <path d="M288 226 C301 300 306 430 301 560" fill="none"
+              stroke="var(--neon-2, #ff7a2f)" stroke-width="3" stroke-linecap="round"/>
+        <!-- detalle de manga -->
+        <path d="M316 452 L340 452" fill="none" stroke="var(--neon-2, #ff7a2f)"
+              stroke-width="8" stroke-linecap="round"/>
+        <path d="M318 486 L336 486" fill="none" stroke="var(--neon-2, #ff7a2f)"
+              stroke-width="4" stroke-linecap="round" opacity=".7"/>
+      </g>
+      <!-- cordones -->
+      <path d="M172 200 L168 268 M228 200 L232 268" fill="none"
+            stroke="rgba(160,220,230,.35)" stroke-width="4" stroke-linecap="round"/>
+      <!-- bolsillos -->
+      <path d="M128 470 L128 528 M272 470 L272 528" fill="none"
+            stroke="rgba(140,200,210,.22)" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="site-header" id="siteHeader">
+    <div class="shell header__inner">
+      <a class="logo" href="#home" aria-label="Neon Forge, ir al inicio">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__text">NEON FORGE</span>
+      </a>
+
+      <nav class="nav" id="mainNav" aria-label="Navegacion principal">
+        <ul class="nav__list">
+          <li><a class="nav__link is-active" href="#home">Home</a></li>
+          <li><a class="nav__link" href="#history">History</a></li>
+          <li><a class="nav__link" href="#collection">Collection</a></li>
+          <li><a class="nav__link" href="#shop">Shop</a></li>
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" type="button" id="searchToggle" aria-expanded="false" aria-controls="searchBar" aria-label="Abrir buscador">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        </button>
+        <button class="icon-btn" type="button" aria-label="Cuenta de usuario">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c1.2-3.6 4-5.2 7-5.2s5.8 1.6 7 5.2"/></svg>
+        </button>
+        <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="searchbar" id="searchBar" hidden>
+      <div class="shell">
+        <form class="searchbar__form" role="search" id="searchForm">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+          <input type="search" id="searchInput" placeholder="Buscar hoodies, chaquetas, accesorios..." aria-label="Buscar en el catalogo">
+          <button class="btn btn--ghost btn--sm" type="submit">Buscar</button>
+        </form>
+        <p class="searchbar__hint" id="searchHint" role="status"></p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==========================================================
+         HERO / HOME
+         ========================================================== -->
+    <section class="hero" id="home">
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <svg class="hero__wires" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path d="M120 470 C 260 700, 470 760, 720 762" />
+        <path d="M1320 470 C 1300 640, 1120 730, 940 745" />
+        <path d="M720 762 C 830 762, 900 752, 940 745" />
+      </svg>
+
+      <div class="hero__ticks" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="hero__stage">
+        <h1 class="hero__title">
+          <span class="hero__title-line">ENGINEER</span>
+          <span class="hero__title-line hero__title-line--wide">YOUR IDENTITY</span>
+        </h1>
+
+        <figure class="hero__figure" id="heroFigure">
+          <svg class="hoodie hoodie--hero" viewBox="0 0 400 620" role="img" aria-label="Sudadera tecnica con costuras luminosas">
+            <use href="#hoodie"></use>
+          </svg>
+        </figure>
+
+        <a class="btn btn--cta" href="#shop">Customize Now</a>
+      </div>
+
+      <!-- Rail lateral derecho -->
+      <aside class="hero__rail" aria-label="Coleccion destacada">
+        <button class="rail__thumb" type="button" data-neon="#4dd8e8" data-neon2="#ff7a2f" aria-label="Ver variante Cyan Core">
+          <svg class="hoodie" viewBox="0 0 400 620" aria-hidden="true"><use href="#hoodie"></use></svg>
+        </button>
+        <p class="rail__text">New Limited Collection 2026</p>
+        <a class="rail__arrow" href="#collection" aria-label="Ir a la coleccion">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+        </a>
+      </aside>
+
+      <!-- Tarjeta inferior izquierda -->
+      <div class="hero__thumb">
+        <button class="thumb__card" type="button" data-neon="#ff7a2f" data-neon2="#ffd166" aria-label="Ver variante Ember Drift">
+          <svg class="hoodie" viewBox="0 0 400 620" aria-hidden="true"><use href="#hoodie"></use></svg>
+        </button>
+        <a class="thumb__plus" href="#collection" aria-label="Ver mas variantes">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v12"/><path d="M6 12h12"/></svg>
+        </a>
+      </div>
+
+      <!-- Redes sociales -->
+      <ul class="hero__social" aria-label="Redes sociales">
+        <li><a href="#contact" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+        </a></li>
+        <li><a href="#contact" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.9L3.6 20.4l4.1-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M9.2 8.6c.2-.4.4-.4.6-.4h.5c.2 0 .4 0 .6.4l.8 1.9c.1.2 0 .4-.1.5-.4.5-.7.7-.5 1a7 7 0 0 0 3.4 2.9c.3.1.4 0 .5-.1l.8-1c.2-.2.3-.2.5-.1l1.8.8c.2.1.3.3.2.6a2.3 2.3 0 0 1-1.6 1.1c-.7.2-1.3.1-2.7-.5a10.7 10.7 0 0 1-4.1-3.6 4.7 4.7 0 0 1-1-2.4 2.8 2.8 0 0 1 .3-1.1Z"/></svg>
+        </a></li>
+        <li><a href="#contact" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.4 21v-7.3h2.4l.4-2.8h-2.8V9.1c0-.8.2-1.3 1.4-1.3h1.5V5.3a20 20 0 0 0-2.2-.1c-2.1 0-3.6 1.3-3.6 3.7v2h-2.4v2.8h2.4V21Z"/></svg>
+        </a></li>
+        <li><a href="#contact" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.3 9.4H4.6V20h2.7Z"/><circle cx="5.9" cy="5.6" r="1.7"/><path d="M13.1 9.2c-1.5 0-2.3.8-2.7 1.4V9.4H7.9V20h2.7v-6c0-1.3.8-2 1.8-2s1.7.7 1.7 2v6h2.7v-6.3c0-2.9-1.6-4.5-3.7-4.5Z"/></svg>
+        </a></li>
+      </ul>
+
+      <a class="hero__scroll" href="#history" aria-label="Bajar a la siguiente seccion">
+        <span>scroll</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg>
+      </a>
+    </section>
+
+    <!-- ==========================================================
+         HISTORY
+         ========================================================== -->
+    <section class="section" id="history">
+      <div class="shell">
+        <header class="section__head reveal">
+          <p class="eyebrow">01 — History</p>
+          <h2 class="section__title">Forjados en la <em>oscuridad</em></h2>
+          <p class="section__lead">
+            Empezamos con una maquina de coser, un rollo de fibra reflectante y una idea:
+            la ropa debia emitir luz propia. Esta es la linea temporal de NEON FORGE.
+          </p>
+        </header>
+
+        <ol class="timeline">
+          <li class="timeline__item reveal">
+            <span class="timeline__year">2019</span>
+            <h3>El primer prototipo</h3>
+            <p>Un taller de 12 m2 en el puerto y una sudadera con costuras EL-wire cosidas a mano. Se vendieron 40 unidades en una semana.</p>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__year">2021</span>
+            <h3>Fibra Lumen</h3>
+            <p>Desarrollamos un hilo conductor lavable que sustituye al cableado rigido. Adios baterias voluminosas, hola flexibilidad total.</p>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__year">2023</span>
+            <h3>Personalizacion total</h3>
+            <p>Lanzamos el configurador: elige color de emision, intensidad y patron de pulso desde tu movil por Bluetooth.</p>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__year">2026</span>
+            <h3>Limited Collection</h3>
+            <p>Series numeradas de 250 piezas, tejido reciclado y nucleo modular intercambiable. La identidad como producto abierto.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         COLLECTION
+         ========================================================== -->
+    <section class="section section--alt" id="collection">
+      <div class="shell">
+        <header class="section__head reveal">
+          <p class="eyebrow">02 — Collection</p>
+          <h2 class="section__title">New Limited <em>Collection 2026</em></h2>
+          <p class="section__lead">Cuatro acabados de emision. Un mismo chasis tecnico. Elige el que hable por ti.</p>
+        </header>
+
+        <div class="grid grid--4">
+          <article class="tile reveal" style="--neon:#4dd8e8; --neon-2:#ff7a2f">
+            <div class="tile__art"><svg class="hoodie" viewBox="0 0 400 620" aria-hidden="true"><use href="#hoodie"></use></svg></div>
+            <h3>Cyan Core</h3>
+            <p>Emision fria, 6500 K</p>
+          </article>
+          <article class="tile reveal" style="--neon:#ff7a2f; --neon-2:#ffd166">
+            <div class="tile__art"><svg class="hoodie" viewBox="0 0 400 620" aria-hidden="true"><use href="#hoodie"></use></svg></div>
+            <h3>Ember Drift</h3>
+            <p>Emision calida, 2200 K</p>
+          </article>
+          <article class="tile reveal" style="--neon:#a97bff; --neon-2:#4dd8e8">
+            <div class="tile__art"><svg class="hoodie" viewBox="0 0 400 620" aria-hidden="true"><use href="#hoodie"></use></svg></div>
+            <h3>Violet Ghost</h3>
+            <p>Pulso reactivo al sonido</p>
+          </article>
+          <article class="tile reveal" style="--neon:#5cf29a; --neon-2:#4dd8e8">
+            <div class="tile__art"><svg class="hoodie" viewBox="0 0 400 620" aria-hidden="true"><use href="#hoodie"></use></svg></div>
+            <h3>Acid Grid</h3>
+            <p>Patron de rejilla dinamica</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SHOP
+         ========================================================== -->
+    <section class="section" id="shop">
+      <div class="shell">
+        <header class="section__head reveal">
+          <p class="eyebrow">03 — Shop</p>
+          <h2 class="section__title">Configura y <em>forjala</em></h2>
+          <p class="section__lead">Tres piezas disponibles ahora mismo. Envio en 72 h y garantia de 2 anos sobre el modulo luminoso.</p>
+        </header>
+
+        <div class="grid grid--3">
+
+          <article class="card reveal" style="--neon:#4dd8e8; --neon-2:#ff7a2f">
+            <span class="card__tag">Best seller</span>
+            <div class="card__art"><svg class="hoodie" viewBox="0 0 400 620" aria-hidden="true"><use href="#hoodie"></use></svg></div>
+            <div class="card__body">
+              <h3 class="card__title">Forge Hoodie — Cyan Core</h3>
+              <p class="card__desc">Algodon tecnico 380 g con Fibra Lumen en capucha, cremallera y manga. 14 h de autonomia.</p>
+              <ul class="card__specs">
+                <li>Lavable a maquina</li>
+                <li>Modulo extraible</li>
+                <li>Tallas XS a XXL</li>
+              </ul>
+              <div class="card__foot">
+                <p class="card__price">189 € <span>219 €</span></p>
+                <button class="btn btn--cta btn--sm js-buy" type="button" data-name="Forge Hoodie Cyan Core">Anadir</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal" style="--neon:#ff7a2f; --neon-2:#ffd166">
+            <span class="card__tag card__tag--warm">Edicion 250</span>
+            <div class="card__art"><svg class="hoodie" viewBox="0 0 400 620" aria-hidden="true"><use href="#hoodie"></use></svg></div>
+            <div class="card__body">
+              <h3 class="card__title">Ember Jacket — Drift</h3>
+              <p class="card__desc">Chaqueta cortavientos con emision ambar de intensidad variable y bolsillos termicos sellados.</p>
+              <ul class="card__specs">
+                <li>Impermeable 8000 mm</li>
+                <li>Pulso reactivo</li>
+                <li>Numerada a mano</li>
+              </ul>
+              <div class="card__foot">
+                <p class="card__price">259 €</p>
+                <button class="btn btn--cta btn--sm js-buy" type="button" data-name="Ember Jacket Drift">Anadir</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal" style="--neon:#a97bff; --neon-2:#4dd8e8">
+            <span class="card__tag card__tag--cool">Nuevo</span>
+            <div class="card__art"><svg class="hoodie" viewBox="0 0 400 620" aria-hidden="true"><use href="#hoodie"></use></svg></div>
+            <div class="card__body">
+              <h3 class="card__title">Ghost Zip — Violet</h3>
+              <p class="card__desc">Silueta oversize con trama violeta reactiva al sonido. Sincroniza el pulso con tu musica.</p>
+              <ul class="card__specs">
+                <li>Bluetooth 5.3</li>
+                <li>Tejido reciclado 92 %</li>
+                <li>Unisex</li>
+              </ul>
+              <div class="card__foot">
+                <p class="card__price">205 €</p>
+                <button class="btn btn--cta btn--sm js-buy" type="button" data-name="Ghost Zip Violet">Anadir</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="shop__note" id="shopNote" role="status"></p>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         ABOUT
+         ========================================================== -->
+    <section class="section section--alt" id="about">
+      <div class="shell about">
+        <div class="about__text reveal">
+          <p class="eyebrow">04 — About</p>
+          <h2 class="section__title">No vendemos ropa.<br><em>Vendemos presencia.</em></h2>
+          <p>
+            NEON FORGE es un estudio de moda tecnica formado por seis disenadores y dos ingenieros
+            electricos. Fabricamos en series cortas, controlamos cada costura y publicamos la
+            trazabilidad completa de nuestros materiales.
+          </p>
+          <p>
+            Cada prenda se ensambla en nuestro taller, se prueba durante 200 ciclos de flexion
+            y se firma con un numero de serie grabado en el modulo interno.
+          </p>
+          <a class="btn btn--ghost" href="#contact">Visita el taller</a>
+        </div>
+
+        <ul class="stats reveal">
+          <li><strong>12 400</strong><span>Prendas forjadas</span></li>
+          <li><strong>250</strong><span>Piezas por serie</span></li>
+          <li><strong>92 %</strong><span>Material reciclado</span></li>
+          <li><strong>2 anos</strong><span>Garantia del modulo</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         CONTACT
+         ========================================================== -->
+    <section class="section" id="contact">
+      <div class="shell contact">
+        <div class="contact__info reveal">
+          <p class="eyebrow">05 — Contact</p>
+          <h2 class="section__title">Hablemos de tu <em>pieza unica</em></h2>
+          <p>Quieres una serie personalizada para tu marca, tu equipo o tu evento? Cuentanoslo y te respondemos en menos de 24 h laborables.</p>
+          <ul class="contact__list">
+            <li><span>Taller</span> Muelle 7, Nave 12 — Valencia</li>
+            <li><span>Email</span> hola@neonforge.studio</li>
+            <li><span>Horario</span> Lun a Vie, 10:00 – 19:00</li>
+          </ul>
+        </div>
+
+        <form class="form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+          </div>
+          <div class="field">
+            <label for="topic">Interes</label>
+            <select id="topic" name="topic">
+              <option>Pedido personalizado</option>
+              <option>Colaboracion de marca</option>
+              <option>Soporte tecnico</option>
+              <option>Prensa</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="4" placeholder="Cuentanos que quieres forjar..." required></textarea>
+          </div>
+          <button class="btn btn--cta" type="submit">Enviar mensaje</button>
+          <p class="form__status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell site-footer__inner">
+      <a class="logo" href="#home">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__text">NEON FORGE</span>
+      </a>
+      <p>© 2026 Neon Forge Studio. Forjado en Valencia.</p>
+      <nav aria-label="Enlaces de pie de pagina">
+        <a href="#collection">Collection</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
