@@ -1,2 +1,14 @@
+# Credenciales y variables de entorno (nunca subir)
+.env
+.env.*
+
+# Vercel CLI (por si algun dia se despliega desde la terminal)
 .vercel
-.env*
+
+# Archivos generados por el sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Carpetas de dependencias (este proyecto no usa, pero por seguridad)
+node_modules/
